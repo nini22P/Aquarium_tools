@@ -104,7 +104,7 @@ def dump_script(script_path, csv_path):
                         'translation': '',
                     })
 
-    with open(csv_path, 'w', encoding='utf-8-sig', newline='') as f:
+    with open(csv_path, 'w', encoding='utf-8', newline='') as f:
         fieldnames = ['file', 'id', 'original', 'translation']
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -114,7 +114,7 @@ def dump_script(script_path, csv_path):
 def import_script(script_path, csv_path, new_script_path):
     translation_map = {}
     if os.path.exists(csv_path):
-        with open(csv_path, 'r', encoding='utf-8-sig') as f:
+        with open(csv_path, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 fname = row['file']
